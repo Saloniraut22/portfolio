@@ -23,7 +23,7 @@
 }
 .parallaxAbout {
   /* The image used */
-  background-image: url("Aboutme.png");
+  background-image: url("Aboutme-mobile.png");
 
   height: 110%;
 
@@ -35,7 +35,7 @@
 }
 .parallaxAboutArt {
   /* The image used */
-  background-image: url("Aboutme-art.png");
+  background-image: url("Aboutme-art-mobile.png");
 
   height: 120%;
 
@@ -47,7 +47,7 @@
 }
 .parallaxPlay1 {
   /* The image used */
-  background-image: url("Play1.png");
+  background-image: url("Play1-mobile.png");
 
   height: 120%;
 
@@ -59,7 +59,7 @@
 }
 .parallaxPlay2 {
   /* The image used */
-  background-image: url("Play2.png");
+  background-image: url("Play2-mobile.png");
 
   height: 120%;
 

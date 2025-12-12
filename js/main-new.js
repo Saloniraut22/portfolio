@@ -35,20 +35,7 @@ const projects = {
   },
   aisunglasses: {
     title: 'Equal Lens - Product Design',
-    images: [
-      './image/AI SUNGLASSES New/Cover.png',
-      './image/AI SUNGLASSES New/Slice 2.png',
-      './image/AI SUNGLASSES New/Slice 3.png',
-      './image/AI SUNGLASSES New/Slice 4.png',
-      './image/AI SUNGLASSES New/Slice 5.png',
-      './image/AI SUNGLASSES New/Slice 6.png',
-      './image/AI SUNGLASSES New/Slice 7.png',
-      './image/AI SUNGLASSES New/Slice 8.png',
-      './image/AI SUNGLASSES New/Slice 9.png',
-      './image/AI SUNGLASSES New/Slice 10.png',
-      './image/AI SUNGLASSES New/Slice 11.png',
-      './image/AI SUNGLASSES New/Slice 12.png'
-    ]
+    externalLink: 'https://www.figma.com/proto/E1KVcFVrWMLIHWsXKtRMH7/AI-SUNGLASSES--Community---Copy-?node-id=3019-128&t=lbxMpEnTa42jjoiC-0&scaling=contain&content-scaling=responsive&page-id=1%3A2'
   },
   spendly: {
     title: 'Spendly: Making Money Simple, Not Stressful',
@@ -536,130 +523,17 @@ function createTextImageLayout(textContent, imgSrc, altText) {
 }
 
 // Helper function to add a centered image (for non-caseStudy projects)
-function addCenteredImage(imgSrc, altText) {
-  const imageContainer = document.createElement('div');
-  imageContainer.style.cssText = `
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    flex-shrink: 0;
-  `;
-  
+function addCenteredImage(imgSrc, altText, index = 0) {
   const img = document.createElement('img');
   img.src = imgSrc;
   img.alt = altText || 'Project screenshot';
-  img.style.cssText = `
-    max-width: 90%;
-    max-height: 90%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    pointer-events: none;
-    display: block;
-    margin: 0;
-    padding: 0;
-  `;
-  
-  img.addEventListener('mouseenter', () => {
-    img.style.transform = 'scale(1.02)';
-    img.style.boxShadow = '0 15px 50px rgba(251, 169, 166, 0.2)';
-  });
-  
-  img.addEventListener('mouseleave', () => {
-    img.style.transform = 'scale(1)';
-    img.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.3)';
-  });
-  
-  // Click to view full size
-  img.addEventListener('click', () => {
-    const fullSizeModal = document.createElement('div');
-    fullSizeModal.style.cssText = `
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.98);
-      z-index: 3000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      cursor: pointer;
-      animation: fadeIn 0.3s ease;
-    `;
-    
-    const fullSizeImg = document.createElement('img');
-    fullSizeImg.src = imgSrc;
-    fullSizeImg.style.cssText = `
-      max-width: 90%;
-      max-height: 90%;
-      object-fit: contain;
-      border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    `;
-    
-    const closeBtn = document.createElement('button');
-    closeBtn.innerHTML = '&times;';
-    closeBtn.style.cssText = `
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
-      width: 50px;
-      height: 50px;
-      background: var(--color-white);
-      color: var(--color-bg);
-      border: none;
-      border-radius: 50%;
-      font-size: 2rem;
-      cursor: pointer;
-      transition: var(--transition);
-      z-index: 3001;
-    `;
-    
-    closeBtn.addEventListener('mouseenter', () => {
-      closeBtn.style.background = 'var(--color-accent)';
-      closeBtn.style.transform = 'rotate(90deg)';
-    });
-    
-    closeBtn.addEventListener('mouseleave', () => {
-      closeBtn.style.background = 'var(--color-white)';
-      closeBtn.style.transform = 'rotate(0deg)';
-    });
-    
-    const closeModal = () => {
-      document.body.removeChild(fullSizeModal);
-      document.body.style.overflow = '';
-    };
-    
-    closeBtn.addEventListener('click', closeModal);
-    fullSizeModal.addEventListener('click', (e) => {
-      if (e.target === fullSizeModal) closeModal();
-    });
-    
-    document.addEventListener('keydown', function escHandler(e) {
-      if (e.key === 'Escape') {
-        closeModal();
-        document.removeEventListener('keydown', escHandler);
-      }
-    });
-    
-    fullSizeModal.appendChild(fullSizeImg);
-    fullSizeModal.appendChild(closeBtn);
-    document.body.appendChild(fullSizeModal);
-    document.body.style.overflow = 'hidden';
-  });
+  img.style.animationDelay = `${index * 0.1}s`;
   
   img.onerror = function() {
-    imageContainer.style.display = 'none';
+    console.error(`Failed to load image: ${imgSrc}`);
   };
-  
-  imageContainer.appendChild(img);
-  return imageContainer;
+
+  return img;
 }
 
 // Helper function to create a list
@@ -702,6 +576,17 @@ function openModal(project, projectKey = null) {
   // Clear previous content
   modalBody.innerHTML = '';
   
+  // Ensure close button is always visible
+  const closeButton = document.getElementById('modalClose');
+  if (closeButton) {
+    closeButton.style.display = 'flex';
+    closeButton.style.visibility = 'visible';
+    closeButton.style.opacity = '1';
+    closeButton.style.zIndex = '99999';
+    closeButton.style.position = 'fixed';
+    closeButton.style.pointerEvents = 'auto';
+  }
+  
   // Adjust modal width based on whether project has case study
   const modalContent = document.querySelector('.modal-content');
   const modalElement = document.getElementById('projectModal');
@@ -736,7 +621,7 @@ function openModal(project, projectKey = null) {
     modalContent.style.background = 'transparent';
     // Keep dark background for visibility
     modalElement.style.background = 'rgba(0, 0, 0, 0.95)';
-    modalElement.style.backdropFilter = 'blur(10px)';
+    modalElement.style.backdropFilter = 'none'; // Remove backdrop filter to fix close button positioning
     modalElement.style.overflow = 'auto';
     // Don't add title for full-screen projects - images take full space
   }
@@ -1192,9 +1077,9 @@ function openModal(project, projectKey = null) {
           './image/lofi_prototype/FI-1.png'
         ];
         
-        const prototypeImagesTitle = document.createElement('h4');
-        prototypeImagesTitle.textContent = 'Prototype Screens';
-        prototypeImagesTitle.style.cssText = `
+              const prototypeImagesTitle = document.createElement('h4');
+              prototypeImagesTitle.textContent = 'Lo-Fi Prototype';
+              prototypeImagesTitle.style.cssText = `
           font-size: 1.3rem;
           color: var(--color-accent);
           margin-top: 2rem;
@@ -2215,21 +2100,10 @@ function openModal(project, projectKey = null) {
       modalBody.appendChild(videoSection);
     }
   } else {
-    // For projects without caseStudy, display images full screen
+    // For projects without caseStudy, display images (original simple approach)
     if (project.images && project.images.length > 0) {
-      // Reset modal body styling for full-screen images
-      modalBody.style.cssText = `
-        padding: 2rem 0;
-        margin: 0;
-        width: 100%;
-        min-height: 100vh;
-        overflow: visible;
-        display: block;
-        background: transparent;
-      `;
-      
       project.images.forEach((imgSrc, index) => {
-        modalBody.appendChild(addCenteredImage(imgSrc, `${project.title} - Image ${index + 1}`));
+        modalBody.appendChild(addCenteredImage(imgSrc, `${project.title} - Image ${index + 1}`, index));
       });
     }
   }

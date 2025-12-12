@@ -1,0 +1,630 @@
+{
+  "project": {
+    "name": "Personal Finance Assistant",
+    "displayName": "Spendly",
+    "tagline": "AI-powered personal finance app for smart money management",
+    "description": "A cross-platform mobile application that helps students and young professionals track expenses, get AI-powered financial insights, and learn about personal finance through an interactive chatbot advisor.",
+    "version": "1.0.0",
+    "status": "Complete",
+    "type": "Mobile Application",
+    "date": {
+      "started": "November 2025",
+      "completed": "December 2025",
+      "lastUpdated": "December 11, 2025"
+    },
+    "category": "FinTech / Personal Finance",
+    "platforms": ["iOS", "Android", "Web"],
+    "projectPath": "/Users/shubhamvartak/Desktop/personal-finance-app"
+  },
+  
+  "overview": {
+    "problem": "Young adults (18-24) struggle with budgeting, understanding spending habits, and making informed financial decisions due to lack of accessible, personalized financial guidance.",
+    "solution": "An intuitive mobile app that combines expense tracking with AI-powered insights and an interactive financial advisor to make personal finance approachable and actionable.",
+    "targetAudience": "Students and young professionals aged 18-24",
+    "impact": "Helps users develop better money habits, increase financial literacy, and achieve savings goals through data-driven insights and education."
+  },
+  
+  "features": [
+    {
+      "id": 1,
+      "name": "Dashboard Overview",
+      "icon": "🏠",
+      "description": "Real-time budget tracking with visual progress indicators, spending trends, and quick actions",
+      "highlights": [
+        "Visual budget progress bars",
+        "Monthly spending trends chart",
+        "Savings goal tracking",
+        "Quick action buttons"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Smart Expense Tracking",
+      "icon": "💸",
+      "description": "Easy expense logging with 8 predefined categories and automatic calculations",
+      "highlights": [
+        "Category-based organization",
+        "Swipe-to-delete functionality",
+        "Real-time budget updates",
+        "Expense search and filter"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "AI-Powered Insights",
+      "icon": "📊",
+      "description": "Google Gemini AI analyzes spending patterns and provides personalized recommendations",
+      "highlights": [
+        "3-tier insight system (positive/warning/info)",
+        "Interactive pie charts",
+        "Monthly summary statistics",
+        "Pattern recognition"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "AI Financial Advisor",
+      "icon": "💬",
+      "description": "Conversational chatbot providing personalized financial guidance",
+      "highlights": [
+        "Context-aware responses",
+        "Topics: budgeting, saving, investing",
+        "Conversation history",
+        "Friendly, encouraging tone"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Compound Interest Calculator",
+      "icon": "💹",
+      "description": "Interactive tool demonstrating savings growth over time with AI explanations",
+      "highlights": [
+        "Customizable parameters",
+        "Visual growth projection",
+        "Motivational AI explanations",
+        "Educational component"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "User Authentication",
+      "icon": "🔐",
+      "description": "Secure sign-up and login flows with onboarding",
+      "highlights": [
+        "User profile management",
+        "Welcome onboarding",
+        "Splash screen branding",
+        "Secure authentication"
+      ]
+    }
+  ],
+  
+  "techStack": {
+    "frontend": {
+      "primary": "React Native 0.81.5",
+      "framework": "Expo 54",
+      "libraries": [
+        "React Navigation 7 (Stack + Tabs)",
+        "React Native Chart Kit 6.12",
+        "React Native SVG 15",
+        "Expo Linear Gradient"
+      ]
+    },
+    "backend": {
+      "type": "Local-first (No backend server)",
+      "storage": "AsyncStorage (@react-native-async-storage)",
+      "api": "Google Gemini API v1beta",
+      "model": "gemini-2.5-flash"
+    },
+    "languages": [
+      "JavaScript",
+      "JSX",
+      "JSON"
+    ],
+    "tools": [
+      "Expo CLI",
+      "npm",
+      "Git",
+      "VS Code"
+    ]
+  },
+  
+  "architecture": {
+    "pattern": "Component-based architecture with service layer",
+    "navigation": "Two-tier (Stack + Tabs)",
+    "dataFlow": "Unidirectional with React hooks",
+    "storage": "AsyncStorage for offline-first functionality",
+    "folders": {
+      "screens": "11 screens for UI",
+      "services": "Business logic (AI, storage)",
+      "utils": "Helper functions",
+      "constants": "Configuration and colors",
+      "components": "Reusable UI components"
+    }
+  },
+  
+  "codeMetrics": {
+    "totalLines": "2500+",
+    "screens": 11,
+    "services": 2,
+    "utilities": 1,
+    "components": 1,
+    "largestFile": {
+      "name": "HomeScreen.js",
+      "lines": 391
+    },
+    "keyFiles": [
+      {
+        "name": "openai.js",
+        "lines": 168,
+        "purpose": "Google Gemini API integration"
+      },
+      {
+        "name": "storage.js",
+        "lines": 146,
+        "purpose": "AsyncStorage wrapper"
+      },
+      {
+        "name": "helpers.js",
+        "lines": 101,
+        "purpose": "Utility functions"
+      },
+      {
+        "name": "SignUpScreen.js",
+        "lines": 218,
+        "purpose": "User registration"
+      }
+    ],
+    "developmentTime": "40-60 hours"
+  },
+  
+  "screens": [
+    {
+      "name": "SplashScreen",
+      "purpose": "App launch animation"
+    },
+    {
+      "name": "AuthScreen",
+      "purpose": "Authentication gateway"
+    },
+    {
+      "name": "WelcomeScreen",
+      "purpose": "Onboarding experience",
+      "lines": 266
+    },
+    {
+      "name": "LoginScreen",
+      "purpose": "User login",
+      "lines": 158
+    },
+    {
+      "name": "SignUpScreen",
+      "purpose": "User registration",
+      "lines": 218
+    },
+    {
+      "name": "HomeScreen",
+      "purpose": "Main dashboard",
+      "lines": 391,
+      "isMain": true
+    },
+    {
+      "name": "ExpensesScreen",
+      "purpose": "Expense management",
+      "isMain": true
+    },
+    {
+      "name": "InsightsScreen",
+      "purpose": "AI insights and charts",
+      "isMain": true
+    },
+    {
+      "name": "ChatScreen",
+      "purpose": "AI chatbot",
+      "isMain": true
+    },
+    {
+      "name": "SettingsScreen",
+      "purpose": "Configuration",
+      "isMain": true
+    },
+    {
+      "name": "ProfileScreen",
+      "purpose": "User profile"
+    }
+  ],
+  
+  "expenseCategories": [
+    {
+      "id": "food",
+      "name": "Food & Dining",
+      "icon": "🍔",
+      "color": "#FF5252"
+    },
+    {
+      "id": "transport",
+      "name": "Transportation",
+      "icon": "🚗",
+      "color": "#4834D4"
+    },
+    {
+      "id": "shopping",
+      "name": "Shopping",
+      "icon": "🛍️",
+      "color": "#E056FD"
+    },
+    {
+      "id": "entertainment",
+      "name": "Entertainment",
+      "icon": "🎬",
+      "color": "#F9CA24"
+    },
+    {
+      "id": "bills",
+      "name": "Bills & Utilities",
+      "icon": "💡",
+      "color": "#6AB04C"
+    },
+    {
+      "id": "health",
+      "name": "Healthcare",
+      "icon": "⚕️",
+      "color": "#EB4D4B"
+    },
+    {
+      "id": "education",
+      "name": "Education",
+      "icon": "📚",
+      "color": "#686DE0"
+    },
+    {
+      "id": "other",
+      "name": "Other",
+      "icon": "📌",
+      "color": "#95AFC0"
+    }
+  ],
+  
+  "technicalHighlights": [
+    {
+      "category": "AI Integration",
+      "achievements": [
+        "Direct REST API integration with Google Gemini (no SDK)",
+        "Structured JSON response parsing with error handling",
+        "Conversation history management for contextual chat",
+        "Three AI functions: insights, chat, compound advice"
+      ]
+    },
+    {
+      "category": "Data Management",
+      "achievements": [
+        "AsyncStorage wrapper for offline-first functionality",
+        "JSON serialization for complex data structures",
+        "Data migration utilities for version updates",
+        "Efficient read/write operations"
+      ]
+    },
+    {
+      "category": "Navigation",
+      "achievements": [
+        "Two-tier navigation architecture (Stack + Tabs)",
+        "Authentication flow management",
+        "Screen transitions and animations",
+        "Tab state preservation"
+      ]
+    },
+    {
+      "category": "Visualization",
+      "achievements": [
+        "Interactive pie charts for spending breakdown",
+        "Responsive chart sizing",
+        "Custom color schemes per category",
+        "SVG-based rendering"
+      ]
+    },
+    {
+      "category": "Performance",
+      "achievements": [
+        "Lazy loading of screens",
+        "Efficient re-renders with React hooks",
+        "Optimistic UI updates",
+        "Minimal bundle size"
+      ]
+    }
+  ],
+  
+  "uniqueSellingPoints": [
+    {
+      "point": "Local-first Architecture",
+      "description": "No backend server required, all data stored locally for privacy and offline access"
+    },
+    {
+      "point": "Educational Component",
+      "description": "Compound interest calculator with AI-generated explanations to motivate saving"
+    },
+    {
+      "point": "Personalized AI Insights",
+      "description": "AI analyzes individual spending patterns, not generic advice"
+    },
+    {
+      "point": "Cross-platform",
+      "description": "Single codebase runs on iOS, Android, and Web"
+    },
+    {
+      "point": "Free to Use",
+      "description": "Leverages Google Gemini free tier (60 requests/minute)"
+    }
+  ],
+  
+  "learningOutcomes": {
+    "technical": [
+      "Cross-platform mobile development with React Native",
+      "RESTful API integration and error handling",
+      "Asynchronous JavaScript (async/await, Promises)",
+      "Local data persistence with AsyncStorage",
+      "Complex navigation patterns",
+      "Data visualization with charts",
+      "Form validation and UX design"
+    ],
+    "domain": [
+      "Personal finance concepts",
+      "Budgeting methodologies (50/30/20 rule)",
+      "Compound interest calculations",
+      "Financial product understanding",
+      "UX for financial applications"
+    ],
+    "soft": [
+      "Problem-solving for real-world use cases",
+      "User-centric design thinking",
+      "Documentation and code organization",
+      "API documentation reading",
+      "Time management and project completion"
+    ]
+  },
+  
+  "futureEnhancements": [
+    {
+      "priority": "High",
+      "features": [
+        "Bank account integration (Plaid API)",
+        "Recurring expense tracking",
+        "Bill reminders and notifications",
+        "Multiple savings goals",
+        "CSV data export"
+      ]
+    },
+    {
+      "priority": "Medium",
+      "features": [
+        "Dark mode toggle",
+        "Spending alerts",
+        "Investment tracking",
+        "Financial literacy content library",
+        "Social features (compare with friends)"
+      ]
+    },
+    {
+      "priority": "Low",
+      "features": [
+        "Redux for state management",
+        "TypeScript migration",
+        "Unit and integration tests",
+        "CI/CD pipeline",
+        "App Store deployment"
+      ]
+    }
+  ],
+  
+  "demoFlow": {
+    "duration": "5 minutes",
+    "steps": [
+      {
+        "time": "0:00-0:30",
+        "action": "Show splash screen and onboarding"
+      },
+      {
+        "time": "0:30-1:30",
+        "action": "Add 3 sample expenses in different categories"
+      },
+      {
+        "time": "1:30-2:30",
+        "action": "Generate AI insights (live API call)"
+      },
+      {
+        "time": "2:30-3:00",
+        "action": "View pie chart and category breakdown"
+      },
+      {
+        "time": "3:00-4:00",
+        "action": "Chat with AI about saving strategies"
+      },
+      {
+        "time": "4:00-4:30",
+        "action": "Demonstrate compound interest calculator"
+      },
+      {
+        "time": "4:30-5:00",
+        "action": "Show settings and configuration options"
+      }
+    ]
+  },
+  
+  "design": {
+    "philosophy": [
+      "iOS-inspired modern interface",
+      "Minimalist approach to reduce financial overwhelm",
+      "Color-coded categories for quick recognition",
+      "Emoji iconography for friendly feel",
+      "Card-based layouts for organized content"
+    ],
+    "colorPalette": {
+      "background": "#0A0E27",
+      "cardBackground": "#1A1F3A",
+      "primary": "#007AFF",
+      "textPrimary": "#FFFFFF",
+      "textSecondary": "#8E8E93",
+      "border": "#2C2C2E"
+    },
+    "uxPrinciples": [
+      "Simple 5-tab navigation",
+      "Quick actions on home screen",
+      "Progressive disclosure",
+      "Positive reinforcement",
+      "Mobile-first responsive design"
+    ]
+  },
+  
+  "installation": {
+    "prerequisites": [
+      "Node.js (v14+)",
+      "npm or yarn",
+      "Expo Go app (iOS/Android)",
+      "Google Gemini API key (free)"
+    ],
+    "steps": [
+      "cd personal-finance-app",
+      "npm install",
+      "Create constants/config.local.js with API key",
+      "npm start",
+      "Scan QR code with Expo Go"
+    ],
+    "apiKeyUrl": "https://aistudio.google.com/api-keys"
+  },
+  
+  "skillsDemonstrated": {
+    "categories": [
+      {
+        "name": "Mobile Development",
+        "skills": [
+          "React Native",
+          "Expo",
+          "Cross-platform development",
+          "Mobile UI/UX design",
+          "Touch interactions"
+        ]
+      },
+      {
+        "name": "API Integration",
+        "skills": [
+          "REST API calls",
+          "JSON parsing",
+          "Error handling",
+          "Async operations",
+          "API authentication"
+        ]
+      },
+      {
+        "name": "Data Management",
+        "skills": [
+          "Local storage",
+          "Data persistence",
+          "CRUD operations",
+          "State management",
+          "Data migration"
+        ]
+      },
+      {
+        "name": "UI/UX Design",
+        "skills": [
+          "Responsive design",
+          "Navigation patterns",
+          "Data visualization",
+          "Form design",
+          "Accessibility"
+        ]
+      },
+      {
+        "name": "Problem Solving",
+        "skills": [
+          "Requirements analysis",
+          "Architecture design",
+          "Debugging",
+          "Performance optimization",
+          "Testing"
+        ]
+      }
+    ]
+  },
+  
+  "achievements": {
+    "technical": [
+      "Successfully integrated Google's latest Gemini 2.5 Flash model",
+      "Built fully functional cross-platform app",
+      "Implemented complex two-tier navigation architecture",
+      "Created reusable service layer for API calls",
+      "Achieved offline-first functionality",
+      "Responsive UI across all screen sizes"
+    ],
+    "product": [
+      "Solved real-world problem for target audience",
+      "User-friendly interface with minimal learning curve",
+      "Educational component promotes financial literacy",
+      "Motivational features encourage savings behavior",
+      "Privacy-first approach with local data storage"
+    ]
+  },
+  
+  "portfolioAssets": {
+    "completed": [
+      "PORTFOLIO_INFO.md (comprehensive documentation)",
+      "PORTFOLIO_QUICK_REFERENCE.md (condensed version)",
+      "portfolio-data.json (structured data)",
+      "README.md (user guide)",
+      "QUICKSTART.md (setup guide)"
+    ],
+    "todo": [
+      "Screenshots (5-7 key screens)",
+      "Demo video (2-3 minutes)",
+      "GitHub repository with README",
+      "Live demo link (Expo publish)",
+      "Presentation slides (10-15 slides)",
+      "Code walkthrough video (optional)"
+    ]
+  },
+  
+  "links": {
+    "github": "[Add your GitHub repo URL]",
+    "demo": "[Add Expo published app URL]",
+    "video": "[Add demo video URL]",
+    "presentation": "[Add slides URL]"
+  },
+  
+  "contact": {
+    "developer": "Shubham Vartak",
+    "email": "[Your email]",
+    "linkedin": "[Your LinkedIn]",
+    "portfolio": "[Your portfolio website]"
+  },
+  
+  "tags": [
+    "React Native",
+    "Mobile Development",
+    "FinTech",
+    "AI Integration",
+    "Google Gemini",
+    "Personal Finance",
+    "Expo",
+    "JavaScript",
+    "Cross-platform",
+    "Data Visualization",
+    "AsyncStorage",
+    "REST API"
+  ],
+  
+  "seo": {
+    "keywords": [
+      "personal finance app",
+      "expense tracker",
+      "AI financial advisor",
+      "budget tracking app",
+      "React Native project",
+      "mobile finance app",
+      "compound interest calculator",
+      "spending insights",
+      "financial literacy app",
+      "student budgeting tool"
+    ],
+    "description": "AI-powered personal finance mobile application built with React Native and Google Gemini API. Features expense tracking, personalized insights, financial chatbot, and compound interest calculator for students and young professionals."
+  }
+}
+

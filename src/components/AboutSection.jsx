@@ -1,17 +1,19 @@
 import { motion } from "framer-motion";
 import { profile } from "../data/projects";
 
+const asset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+
 const galleryPhotos = [
-  { src: "/image/About/photo1.jpeg", alt: "San Francisco Streets" },
-  { src: "/image/About/photo2.jpeg", alt: "Ocean View" },
-  { src: "/image/About/photo3.jpeg", alt: "Flower Market" },
-  { src: "/image/About/photo4.jpeg", alt: "Mountain Views" },
-  { src: "/image/About/photo5.jpeg", alt: "Conference" },
-  { src: "/image/About/photo6.jpeg", alt: "Culinary Adventures" },
-  { src: "/image/About/photo7.jpeg", alt: "Golden Gate" },
-  { src: "/image/About/photo8.jpeg", alt: "Nature Encounters" },
-  { src: "/image/About/photo9.jpeg", alt: "NYC Skyline" },
-  { src: "/image/About/photo10.jpeg", alt: "Hiking Adventures" },
+  { src: asset("/image/About/photo1.jpeg"), alt: "San Francisco Streets" },
+  { src: asset("/image/About/photo2.jpeg"), alt: "Ocean View" },
+  { src: asset("/image/About/photo3.jpeg"), alt: "Flower Market" },
+  { src: asset("/image/About/photo4.jpeg"), alt: "Mountain Views" },
+  { src: asset("/image/About/photo5.jpeg"), alt: "Conference" },
+  { src: asset("/image/About/photo6.jpeg"), alt: "Culinary Adventures" },
+  { src: asset("/image/About/photo7.jpeg"), alt: "Golden Gate" },
+  { src: asset("/image/About/photo8.jpeg"), alt: "Nature Encounters" },
+  { src: asset("/image/About/photo9.jpeg"), alt: "NYC Skyline" },
+  { src: asset("/image/About/photo10.jpeg"), alt: "Hiking Adventures" },
 ];
 
 const cards = [
@@ -101,7 +103,7 @@ export default function AboutSection() {
 
             <div>
               <img
-                src="/image/About/SaloniRaut.jpg"
+                src={asset("/image/About/SaloniRaut.jpg")}
                 alt={`${profile.name} portrait`}
                 loading="lazy"
                 style={{

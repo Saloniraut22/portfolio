@@ -2,15 +2,17 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useRef, useState } from "react";
 import { profile } from "../data/projects";
 
+const asset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+
 const hoverImages = [
-  "/image/hover/photo1.png",
-  "/image/hover/photo2.png",
-  "/image/hover/photo3.png",
-  "/image/hover/photo4.png",
-  "/image/hover/photo5.png",
-  "/image/hover/photo6.png",
-  "/image/hover/photo7.png",
-  "/image/hover/photo8.png",
+  asset("/image/hover/photo1.png"),
+  asset("/image/hover/photo2.png"),
+  asset("/image/hover/photo3.png"),
+  asset("/image/hover/photo4.png"),
+  asset("/image/hover/photo5.png"),
+  asset("/image/hover/photo6.png"),
+  asset("/image/hover/photo7.png"),
+  asset("/image/hover/photo8.png"),
 ];
 
 const rotations = [-6, 4, -3, 7, -5, 3];

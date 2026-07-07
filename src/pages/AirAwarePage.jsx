@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
+const asset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+
 const font = "Inter, sans-serif";
 const blue = "#1A73E8";
 const dark = "#08111E";
@@ -182,7 +184,7 @@ export default function AirAwarePage() {
 
       {/* ══ HERO ══════════════════════════════════════════════ */}
       <div style={{ position: "relative", width: "100%", height: "clamp(420px,65vh,740px)", overflow: "hidden" }}>
-        <img src="/image/airaware/cover.png" alt="AirAware cover"
+        <img src={asset("/image/airaware/cover.png")} alt="AirAware cover"
           style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "blur(6px)", transform: "scale(1.05)" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.1) 60%)" }} />
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "4rem 5%" }}>
@@ -403,15 +405,15 @@ export default function AirAwarePage() {
                 boxShadow: `0 8px 32px ${p.accent}12` }}>
               <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.25rem" }}>
                 {p.name === "Nia" ? (
-                  <img src="/image/airaware/persona-nia.png" alt="Nia"
+                  <img src={asset("/image/airaware/persona-nia.png")} alt="Nia"
                     style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover",
                       flexShrink: 0, border: `2px solid ${p.accent}40` }} />
                 ) : p.name === "Anaya" ? (
-                  <img src="/image/airaware/persona-anaya.png" alt="Anaya"
+                  <img src={asset("/image/airaware/persona-anaya.png")} alt="Anaya"
                     style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover",
                       flexShrink: 0, border: `2px solid ${p.accent}40` }} />
                 ) : (
-                  <img src="/image/airaware/persona-ryan.png" alt="Ryan"
+                  <img src={asset("/image/airaware/persona-ryan.png")} alt="Ryan"
                     style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover",
                       flexShrink: 0, border: `2px solid ${p.accent}40` }} />
                 )}
@@ -536,7 +538,7 @@ export default function AirAwarePage() {
           The app is organized around five major areas: Home, Explore, Groups, Notifications, and Profile. The structure supports a simple flow: understand current conditions, personalize your needs, explore places, and decide individually or with a group.
         </Body>
         <div style={{ marginTop: "2rem" }}>
-          <img src="/image/airaware/ia-diagram.png" alt="AirAware Information Architecture"
+          <img src={asset("/image/airaware/ia-diagram.png")} alt="AirAware Information Architecture"
             style={{ width: "100%", maxWidth: 512, display: "block", margin: "0 auto", borderRadius: 12 }} />
         </div>
       </Section>
@@ -550,7 +552,7 @@ export default function AirAwarePage() {
           The main flow guides users from onboarding through to a confident destination decision. The flow splits into two paths: an individual decision path (personal sensitivity → explore recommendations → decide) and a group path (create or join a group → shared recommendations → decide together).
         </Body>
         <div style={{ marginTop: "2rem", display: "flex", justifyContent: "center" }}>
-          <img src="/image/airaware/user-flow.png" alt="AirAware User Flow Diagram"
+          <img src={asset("/image/airaware/user-flow.png")} alt="AirAware User Flow Diagram"
             style={{ width: "500px", display: "block", borderRadius: 12 }} />
         </div>
       </Section>
@@ -643,7 +645,7 @@ export default function AirAwarePage() {
                   maxWidth: group.imgs.length === 1 ? 360 : "100%",
                 }}>
                   <img
-                    src={`/image/Airaware App/${img}`}
+                    src={asset(`/image/Airaware App/${img}`)}
                     alt={`${group.label} — screen`}
                     style={{ width: "100%", display: "block" }}
                   />
@@ -825,7 +827,7 @@ export default function AirAwarePage() {
               }}
             >
               <img
-                src="/image/airaware/reflection.png"
+                src={asset("/image/airaware/reflection.png")}
                 alt="AirAware thesis presentation"
                 style={{ width: "100%", display: "block", objectFit: "contain" }}
               />
@@ -876,7 +878,7 @@ export default function AirAwarePage() {
               background: "#000",
             }}>
               <video
-                src="/image/airaware/demo.mp4"
+                src={asset("/image/airaware/demo.mp4")}
                 autoPlay
                 loop
                 muted

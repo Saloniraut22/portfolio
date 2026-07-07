@@ -96,8 +96,7 @@ export default function EqualLensPage() {
   const feature = AR_FEATURES.find(f => f.id === activeFeature);
 
   const goBack = () => {
-    navigate("/");
-    setTimeout(() => document.getElementById("works")?.scrollIntoView({ behavior: "smooth" }), 100);
+    navigate("/#works");
   };
 
   return (

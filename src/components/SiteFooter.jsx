@@ -8,7 +8,7 @@ export default function SiteFooter() {
       }}
     >
       <p style={{ color: "#999", fontSize: "0.9rem" }}>
-        All rights reserved, Saloni Raut © 2025
+        All rights reserved, Saloni Raut © 2026
       </p>
     </footer>
   );

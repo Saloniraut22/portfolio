@@ -166,8 +166,7 @@ export default function AirAwarePage() {
   }, []);
 
   const goBack = () => {
-    navigate("/");
-    setTimeout(() => document.getElementById("works")?.scrollIntoView({ behavior: "smooth" }), 100);
+    navigate("/#works");
   };
 
   return (
@@ -196,7 +195,7 @@ export default function AirAwarePage() {
             }}>AirAware</h1>
             <p style={{
               fontFamily: font, fontWeight: 300, fontSize: "clamp(1rem,2vw,1.4rem)",
-              color: "rgba(255,255,255,0.75)", maxWidth: 680, lineHeight: 1.6,
+              color: "rgba(8,17,30,0.82)", maxWidth: 680, lineHeight: 1.6,
             }}>
               A personalized air quality decision-support app that transforms complex AQI data
               into simple, actionable recommendations for people with asthma.

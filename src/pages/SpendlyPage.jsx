@@ -93,6 +93,10 @@ function Tag({ children }) {
 export default function SpendlyPage() {
   const navigate = useNavigate();
 
+  const goBack = () => {
+    navigate("/#works");
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Spendly — Saloni Raut";
@@ -103,7 +107,7 @@ export default function SpendlyPage() {
     <div style={{ background: "#fff", minHeight: "100vh", fontFamily: "Inter, sans-serif" }}>
 
       {/* Back button */}
-      <button onClick={() => navigate("/")} style={{
+      <button onClick={goBack} style={{
         position: "fixed", top: 24, left: 24, zIndex: 100,
         background: "rgba(0,0,0,0.75)", border: "none", color: "#fff",
         fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "0.85rem",
@@ -859,7 +863,7 @@ export default function SpendlyPage() {
 
       {/* ── FOOTER NAV ── */}
       <div style={{ padding: "3rem 5%", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid rgba(0,0,0,0.08)" }}>
-        <button onClick={() => { navigate("/"); setTimeout(() => document.getElementById("works")?.scrollIntoView({ behavior: "smooth" }), 100); }} style={{
+        <button onClick={goBack} style={{
           fontFamily: "Inter", fontWeight: 600, fontSize: "1rem",
           background: "none", border: "2px solid #0a0a0a", color: "#0a0a0a",
           padding: "0.65rem 1.5rem", borderRadius: 40, cursor: "pointer",

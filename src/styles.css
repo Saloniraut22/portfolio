@@ -233,6 +233,35 @@
   .ar-feature-grid {
     grid-template-columns: 1fr !important;
   }
+
+  .hero-cta-row {
+    width: 100%;
+    max-width: 22rem;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta-button {
+    width: 100%;
+    min-height: 52px;
+    padding: 0.95rem 1.25rem !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .airaware-hero-content {
+    padding: 4rem 7% 2.5rem !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .airaware-hero-copy {
+    width: 100%;
+    max-width: 34rem;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 768px) {

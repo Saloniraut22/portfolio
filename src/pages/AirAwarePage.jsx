@@ -186,8 +186,13 @@ export default function AirAwarePage() {
         <img src={asset("/image/airaware/cover.png")} alt="AirAware cover"
           style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "blur(6px)", transform: "scale(1.05)" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.1) 60%)" }} />
-        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "4rem 5%" }}>
-          <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
+        <div
+          className="airaware-hero-content"
+          style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "4rem 5%" }}
+        >
+          <motion.div
+            className="airaware-hero-copy"
+            initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
             <h1 style={{
               fontFamily: font, fontWeight: 900, fontSize: "clamp(3rem,9vw,7rem)",

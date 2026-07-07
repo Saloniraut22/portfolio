@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import AboutSection from "../components/AboutSection";
 import ContactSection from "../components/ContactSection";
 import CustomCursor from "../components/CustomCursor";
@@ -11,6 +12,8 @@ const FIGMA_EMBED_URL =
   "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FE1KVcFVrWMLIHWsXKtRMH7%2FAI-SUNGLASSES--Community---Copy-%3Fnode-id%3D3019-128%26t%3DBj9IihCAnfFUDMTu-0%26scaling%3Dmin-zoom%26content-scaling%3Dfixed%26page-id%3D1%253A2";
 
 export default function HomePage() {
+  const location = useLocation();
+
   useEffect(() => {
     document.title = "Saloni Raut | Product & UX Designer";
 
@@ -27,6 +30,17 @@ export default function HomePage() {
 
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (location.hash !== "#works") return;
+
+    const scrollToWorks = () => {
+      document.getElementById("works")?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    const timer = setTimeout(scrollToWorks, 0);
+    return () => clearTimeout(timer);
+  }, [location.hash]);
 
   return (
     <>

@@ -2,17 +2,19 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
+const asset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+
 const IMAGES = [
-  "/image/Spendly/IMG_0046.jpg",
-  "/image/Spendly/IMG_0047.PNG",
-  "/image/Spendly/IMG_0049.PNG",
-  "/image/Spendly/IMG_0051.PNG",
-  "/image/Spendly/IMG_0053.PNG",
-  "/image/Spendly/IMG_0056.PNG",
-  "/image/Spendly/IMG_0058.PNG",
-  "/image/Spendly/IMG_0059.PNG",
-  "/image/Spendly/IMG_0060.PNG",
-  "/image/Spendly/IMG_0061.PNG",
+  asset("/image/Spendly/IMG_0046.jpg"),
+  asset("/image/Spendly/IMG_0047.PNG"),
+  asset("/image/Spendly/IMG_0049.PNG"),
+  asset("/image/Spendly/IMG_0051.PNG"),
+  asset("/image/Spendly/IMG_0053.PNG"),
+  asset("/image/Spendly/IMG_0056.PNG"),
+  asset("/image/Spendly/IMG_0058.PNG"),
+  asset("/image/Spendly/IMG_0059.PNG"),
+  asset("/image/Spendly/IMG_0060.PNG"),
+  asset("/image/Spendly/IMG_0061.PNG"),
 ];
 
 const KEY_INSIGHTS = [
@@ -91,6 +93,10 @@ function Tag({ children }) {
 export default function SpendlyPage() {
   const navigate = useNavigate();
 
+  const goBack = () => {
+    navigate("/#works");
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Spendly — Saloni Raut";
@@ -101,7 +107,7 @@ export default function SpendlyPage() {
     <div style={{ background: "#fff", minHeight: "100vh", fontFamily: "Inter, sans-serif" }}>
 
       {/* Back button */}
-      <button onClick={() => navigate("/")} style={{
+      <button onClick={goBack} style={{
         position: "fixed", top: 24, left: 24, zIndex: 100,
         background: "rgba(0,0,0,0.75)", border: "none", color: "#fff",
         fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "0.85rem",
@@ -113,7 +119,7 @@ export default function SpendlyPage() {
 
       {/* ── HERO ── */}
       <div style={{ position: "relative", width: "100%", height: "clamp(360px, 55vh, 620px)", overflow: "hidden", background: "#0a0a0a" }}>
-        <img src="/image/Spendly/cover.png" alt="Spendly cover"
+        <img src={asset("/image/Spendly/cover.png")} alt="Spendly cover"
           style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.7, filter: "blur(6px)", transform: "scale(1.05)" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%)" }} />
         <div style={{ position: "absolute", bottom: "10%", left: "5%", right: "5%" }}>
@@ -474,8 +480,8 @@ export default function SpendlyPage() {
         <SectionTitle>Service Blueprint & Storyboard</SectionTitle>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "2rem" }}>
           {[
-            { src: "/image/Spendly/service blueprint.jpg", label: "Service Blueprint" },
-            { src: "/image/Spendly/story board.png", label: "Storyboard" },
+            { src: asset("/image/Spendly/service blueprint.jpg"), label: "Service Blueprint" },
+            { src: asset("/image/Spendly/story board.png"), label: "Storyboard" },
           ].map((item) => (
             <div key={item.label}
               style={{ borderRadius: 16, overflow: "hidden", background: "#f0f0f0" }}
@@ -843,7 +849,7 @@ export default function SpendlyPage() {
               background: "#000",
             }}>
               <video
-                src="/image/Spendly/demo.mp4"
+                src={asset("/image/Spendly/demo.mp4")}
                 autoPlay
                 loop
                 muted
@@ -857,7 +863,7 @@ export default function SpendlyPage() {
 
       {/* ── FOOTER NAV ── */}
       <div style={{ padding: "3rem 5%", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid rgba(0,0,0,0.08)" }}>
-        <button onClick={() => { navigate("/"); setTimeout(() => document.getElementById("works")?.scrollIntoView({ behavior: "smooth" }), 100); }} style={{
+        <button onClick={goBack} style={{
           fontFamily: "Inter", fontWeight: 600, fontSize: "1rem",
           background: "none", border: "2px solid #0a0a0a", color: "#0a0a0a",
           padding: "0.65rem 1.5rem", borderRadius: 40, cursor: "pointer",

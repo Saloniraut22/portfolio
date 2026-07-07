@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 /* ─── shared primitives ─────────────────────────── */
 const font = "Inter, sans-serif";
+const asset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
 
 function H({ children, color = "#101010", size = "clamp(2rem,5vw,4.5rem)", style = {} }) {
   return (
@@ -56,28 +57,28 @@ const AR_FEATURES = [
     label: "Real-Time Bias Awareness",
     tagline: "Notice bias → Balance instantly",
     body: "AR glasses provide subtle visual cues to help professionals spot uneven focus and adjust in real time. Concentric rings in the peripheral view indicate where attention is concentrated.",
-    video: "/image/equallens/2.1.mov",
+    video: asset("/image/equallens/2.1.mov"),
   },
   {
     id: "memory",
     label: "Memory & Engagement",
     tagline: "Remember names → Build trust",
     body: "Name overlays appear subtly in the lens view, helping service professionals personalise interactions and avoid identity-based assumptions.",
-    video: "/image/equallens/2.2.mov",
+    video: asset("/image/equallens/2.2.mov"),
   },
   {
     id: "conversation",
     label: "Conversational Support",
     tagline: "Get stuck → Re-engage smoothly",
     body: "When a user hasn't engaged someone for a while, AI-generated talking points appear — making it easier to include everyone equally.",
-    video: "/image/equallens/2.3.mov",
+    video: asset("/image/equallens/2.3.mov"),
   },
   {
     id: "insights",
     label: "Post-Interaction Insights",
     tagline: "Reflect → Improve over time",
     body: "A post-session dashboard surfaces who you spoke with and for how long — helping professionals track and grow their inclusive habits over time.",
-    video: "/image/equallens/2.4.mov",
+    video: asset("/image/equallens/2.4.mov"),
   },
 ];
 
@@ -95,8 +96,7 @@ export default function EqualLensPage() {
   const feature = AR_FEATURES.find(f => f.id === activeFeature);
 
   const goBack = () => {
-    navigate("/");
-    setTimeout(() => document.getElementById("works")?.scrollIntoView({ behavior: "smooth" }), 100);
+    navigate("/#works");
   };
 
   return (
@@ -113,7 +113,7 @@ export default function EqualLensPage() {
 
       {/* ══ 1. HERO ════════════════════════════════════════════ */}
       <div style={{ position: "relative", width: "100%", height: "clamp(420px,65vh,740px)", overflow: "hidden" }}>
-        <img src="/image/AI Sunglasses/Cover.png" alt="Equal Lens"
+        <img src={asset("/image/AI Sunglasses/Cover.png")} alt="Equal Lens"
           style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "blur(6px)", transform: "scale(1.05)" }} />
         <div style={{ position: "absolute", inset: 0,
           background: "linear-gradient(160deg,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.1) 60%)" }} />
@@ -231,9 +231,9 @@ export default function EqualLensPage() {
       </div>
       <div style={{ background: "#fff", padding: "0 5% 2.5rem",
         display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
-        <img src="/image/equallens/user-persona1.png" alt="User Persona — Ethan Miller"
+        <img src={asset("/image/equallens/user-persona1.png")} alt="User Persona — Ethan Miller"
           style={{ width: "100%", display: "block", borderRadius: 16 }} />
-        <img src="/image/equallens/user-persona2.png" alt="User Persona — Luis Ramirez"
+        <img src={asset("/image/equallens/user-persona2.png")} alt="User Persona — Luis Ramirez"
           style={{ width: "100%", display: "block", borderRadius: 16 }} />
       </div>
 
@@ -244,7 +244,7 @@ export default function EqualLensPage() {
         </div>
       </div>
       <div style={{ background: "#000", padding: "0 5% 2.5rem", display: "flex", justifyContent: "center" }}>
-        <img src="/image/equallens/user-journey-map.png" alt="User Journey Map"
+        <img src={asset("/image/equallens/user-journey-map.png")} alt="User Journey Map"
           style={{ width: "100%", maxWidth: 860, display: "block", borderRadius: 16,
             imageRendering: "auto" }} />
       </div>
@@ -394,15 +394,15 @@ export default function EqualLensPage() {
       </div>
       {/* first image full width */}
       <div style={{ background: "#fff", padding: "0 5% 2rem" }}>
-        <img src="/image/equallens/storyboard-1.png" alt="Storyboard"
+        <img src={asset("/image/equallens/storyboard-1.png")} alt="Storyboard"
           style={{ width: "100%", display: "block", borderRadius: 16 }} />
       </div>
       {/* next two side by side */}
       <div style={{ background: "#fff", padding: "0 5% 2.5rem",
         display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
-        <img src="/image/equallens/storyboard-2.png" alt="Storyboard photo 1"
+        <img src={asset("/image/equallens/storyboard-2.png")} alt="Storyboard photo 1"
           style={{ width: "100%", display: "block", borderRadius: 16, objectFit: "cover" }} />
-        <img src="/image/equallens/storyboard-3.png" alt="Storyboard photo 2"
+        <img src={asset("/image/equallens/storyboard-3.png")} alt="Storyboard photo 2"
           style={{ width: "100%", display: "block", borderRadius: 16, objectFit: "cover" }} />
       </div>
 
@@ -411,15 +411,15 @@ export default function EqualLensPage() {
         <H size="clamp(1.8rem,4vw,3.5rem)">Lo-fi Prototype</H>
       </div>
       <div style={{ background: "#fff", padding: "0 5% 2rem" }}>
-        <img src="/image/equallens/prototype-1.png" alt="Prototype screen 1"
+        <img src={asset("/image/equallens/prototype-1.png")} alt="Prototype screen 1"
           style={{ width: "100%", display: "block", borderRadius: 16 }} />
       </div>
       <div style={{ background: "#fff", padding: "0 5% 2rem" }}>
-        <img src="/image/equallens/prototype-2.png" alt="Prototype screen 2"
+        <img src={asset("/image/equallens/prototype-2.png")} alt="Prototype screen 2"
           style={{ width: "100%", display: "block", borderRadius: 16 }} />
       </div>
       <div style={{ background: "#fff", padding: "0 5% 2.5rem" }}>
-        <img src="/image/equallens/prototype-3.png" alt="Prototype screen 3"
+        <img src={asset("/image/equallens/prototype-3.png")} alt="Prototype screen 3"
           style={{ width: "100%", display: "block", borderRadius: 16 }} />
       </div>
 
@@ -430,7 +430,7 @@ export default function EqualLensPage() {
 
       {/* ══ 14. 1.mov — alone ══════════════════════════════════ */}
       <div style={{ background: "#fff", padding: "2.5rem 5%" }}>
-        <video src="/image/equallens/1.mov" autoPlay loop muted playsInline
+        <video src={asset("/image/equallens/1.mov")} autoPlay loop muted playsInline
           style={{ width: "100%", display: "block", borderRadius: 16, maxHeight: "80vh", objectFit: "cover" }} />
       </div>
 
@@ -438,13 +438,13 @@ export default function EqualLensPage() {
       <div style={{ background: "#fff", display: "grid", gridTemplateColumns: "1fr 1fr",
         gap: "2rem", padding: "2rem 5%" }}>
         <div>
-          <video src="/image/equallens/2.1.mov" autoPlay loop muted playsInline
+          <video src={asset("/image/equallens/2.1.mov")} autoPlay loop muted playsInline
             style={{ width: "100%", display: "block", borderRadius: 16 }} />
           <div style={{ fontFamily: font, fontWeight: 600, fontSize: "clamp(0.9rem,1.5vw,1.1rem)",
             color: "#000", paddingTop: "1rem" }}>Memory &amp; Engagement</div>
         </div>
         <div>
-          <video src="/image/equallens/2.2.mov" autoPlay loop muted playsInline
+          <video src={asset("/image/equallens/2.2.mov")} autoPlay loop muted playsInline
             style={{ width: "100%", display: "block", borderRadius: 16 }} />
           <div style={{ fontFamily: font, fontWeight: 600, fontSize: "clamp(0.9rem,1.5vw,1.1rem)",
             color: "#000", paddingTop: "1rem" }}>Real-Time Bias Awareness</div>
@@ -455,11 +455,11 @@ export default function EqualLensPage() {
       <div style={{ background: "#fff", display: "grid", gridTemplateColumns: "1fr 1fr",
         gap: "2rem", padding: "2rem 5%" }}>
         <div>
-          <video src="/image/equallens/2.3.mov" autoPlay loop muted playsInline
+          <video src={asset("/image/equallens/2.3.mov")} autoPlay loop muted playsInline
             style={{ width: "100%", display: "block", borderRadius: 16 }} />
         </div>
         <div>
-          <video src="/image/equallens/2.4.mov" autoPlay loop muted playsInline
+          <video src={asset("/image/equallens/2.4.mov")} autoPlay loop muted playsInline
             style={{ width: "100%", display: "block", borderRadius: 16 }} />
           <div style={{ fontFamily: font, fontWeight: 600, fontSize: "clamp(0.9rem,1.5vw,1.1rem)",
             color: "#000", paddingTop: "1rem" }}>Conversational Support</div>
@@ -470,11 +470,11 @@ export default function EqualLensPage() {
       <div style={{ background: "#fff", display: "flex", gap: "2rem", padding: "2rem 5% 3rem",
         alignItems: "flex-start" }}>
         <div style={{ flex: 1, marginTop: "-10%" }}>
-          <img src="/image/equallens/2.5.png" alt="Post-Interaction UI"
+          <img src={asset("/image/equallens/2.5.png")} alt="Post-Interaction UI"
             style={{ width: "100%", display: "block", objectFit: "contain", borderRadius: 16 }} />
         </div>
         <div style={{ flex: 1 }}>
-          <video src="/image/equallens/2.6.mov" autoPlay loop muted playsInline
+          <video src={asset("/image/equallens/2.6.mov")} autoPlay loop muted playsInline
             style={{ width: "100%", display: "block", borderRadius: 16 }} />
           <div style={{ fontFamily: font, fontWeight: 600, fontSize: "clamp(0.9rem,1.5vw,1.1rem)",
             color: "#000", paddingTop: "1rem" }}>Post-Interaction Insights</div>

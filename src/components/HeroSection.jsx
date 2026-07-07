@@ -176,10 +176,12 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.1 }}
+          className="hero-cta-row"
           style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}
         >
           <a
             href="#works"
+            className="hero-cta-button hero-cta-primary"
             style={{
               padding: "0.9rem 2.2rem",
               background: "#FBA9A6",
@@ -191,6 +193,7 @@ export default function HeroSection() {
               letterSpacing: "0.04em",
               textDecoration: "none",
               transition: "all 0.35s",
+              touchAction: "manipulation",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "#ff8b86";
@@ -209,6 +212,7 @@ export default function HeroSection() {
             href={profile.resume}
             target="_blank"
             rel="noreferrer"
+            className="hero-cta-button hero-cta-secondary"
             style={{
               padding: "0.9rem 2.2rem",
               border: "1px solid rgba(251,169,166,0.5)",
@@ -220,6 +224,7 @@ export default function HeroSection() {
               letterSpacing: "0.04em",
               textDecoration: "none",
               transition: "all 0.35s",
+              touchAction: "manipulation",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = "#FBA9A6";
